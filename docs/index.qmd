@@ -1,0 +1,36 @@
+---
+title: "index"
+format: html
+editor: visual
+---
+
+# Einleitung
+
+Trinkwasserdaten im Verteilnetz (Nitrat und Gesamthärte) im Kanton Zürich, die Daten sind in Bezirke und nach Gemeinde eingeteilt. Je nach Gemeinde kann es mehrere Druckzonen aufweisen.
+
+Ziele sind:
+
+Daten pro Gemeinde analysieren. Überschreitungen von 25 mg/l und 40 mg/l Nitrat graphisch darstellen und visuell kenntlich machen (z.B. Plots mit roten Punkten als Überschreitung), Härtegrade in weich (), mittel (), hart (), sehr hart, Gesamtübersicht über beide Parameter. Gedanklich bereits weitere Analyten (z.B. E. coli, Enterokokken) einplanen, welche nur intern verwendet werden. Schnittstelle Datenbanken abklären.
+
+In ein Shiny App implementieren, um einzelne Gemeinden anzuwählen und darzustellen.
+
+```{r}
+library(tidyverse)
+install.packages("here")
+library(here)
+library(ggthemes)
+library(dplyr)
+```
+
+## Daten
+
+```{r}
+read_csv(here::here("daten/raw/Trinkwasserqualitaetsexport.csv"))
+read_csv(here::here("daten/raw/Konzentrationsbereiche.csv"))
+```
+
+## Analyseziele
+
+# Daten Aufbereitung
+
+# Daten Visualisierung
