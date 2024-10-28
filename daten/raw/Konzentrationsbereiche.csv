@@ -1,0 +1,61 @@
+"gruppe","gruppe_id","analyt","analyt_id","kategorie","kategorie_sortierung","einheit","farbcode","start_datum","end_datum","bemerkung"
+"Kontaminanten, sonstige",1,"Nitrat",7,"<10.0",1,"mg/l","#aaff3c","16.12.2016",NA,NA
+"Kontaminanten, sonstige",1,"Nitrat",7,"10.0 - <20.0",2,"mg/l","#77c830","16.12.2016",NA,NA
+"Kontaminanten, sonstige",1,"Nitrat",7,"20.0 - <30.0",3,"mg/l","#4b9322","16.12.2016",NA,NA
+"Kontaminanten, sonstige",1,"Nitrat",7,"30.0 - <40.0",4,"mg/l","#246112","16.12.2016",NA,NA
+"Kontaminanten, sonstige",1,"Nitrat",7,"≥40.0",5,"mg/l","#ff5100","16.12.2016",NA,NA
+"Natürliche Inhaltsstoffe",2,"Gesamthärte",3,"<15",1,"°fH","#caf0f8",NA,NA,NA
+"Natürliche Inhaltsstoffe",2,"Gesamthärte",3,"15 - <25",2,"°fH","#90e0ef",NA,NA,NA
+"Natürliche Inhaltsstoffe",2,"Gesamthärte",3,"25 - <32",3,"°fH","#00b4d8",NA,NA,NA
+"Natürliche Inhaltsstoffe",2,"Gesamthärte",3,"32 - <42",4,"°fH","#0077b6",NA,NA,NA
+"Natürliche Inhaltsstoffe",2,"Gesamthärte",3,"≥42",5,"°fH","#03045e",NA,NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluorhexansulfonsäure (PFHxS)",8,"<0.3",1,"µg/l","#64c800","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluorhexansulfonsäure (PFHxS)",8,"0.3 - <0.4",2,"µg/l","#ffe600","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluorhexansulfonsäure (PFHxS)",8,"0.4 - <0.5",3,"µg/l","#ffb300","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluorhexansulfonsäure (PFHxS)",8,"0.5 - <0.6",4,"µg/l","#ff8400","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluorhexansulfonsäure (PFHxS)",8,"≥0.6",5,"µg/l","#ff5100","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansulfonsäure (PFOS)",9,"<0.3",1,"µg/l","#64c800","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansulfonsäure (PFOS)",9,"0.3 - <0.4",2,"µg/l","#ffe600","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansulfonsäure (PFOS)",9,"0.4 - <0.5",3,"µg/l","#ffb300","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansulfonsäure (PFOS)",9,"0.5 - <0.6",4,"µg/l","#ff8400","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansulfonsäure (PFOS)",9,"≥0.6",5,"µg/l","#ff5100","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansäure (PFOA)",10,"<0.5",1,"µg/l","#64c800","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansäure (PFOA)",10,"0.5 - <0.6",2,"µg/l","#ffe600","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansäure (PFOA)",10,"0.6 - <0.7",3,"µg/l","#ffb300","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansäure (PFOA)",10,"0.7 - <0.8",4,"µg/l","#ff8400","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Perfluoroctansäure (PFOA)",10,"≥0.8",5,"µg/l","#ff5100","16.12.2016",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Summe PFAS-20",11,"<0.1",1,"µg/l","#64c800",NA,NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Summe PFAS-20",11,"0.1 - <0.2",2,"µg/l","#ffe600",NA,NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Summe PFAS-20",11,"0.2 - <0.3",3,"µg/l","#ffb300",NA,NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Summe PFAS-20",11,"0.3 - <0.4",4,"µg/l","#ff8400",NA,NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Summe PFAS-20",11,"≥0.4",5,"µg/l","#ff5100",NA,NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Trifluoressigsäure (TFA)",12,"<0.4",1,"µg/l","#aaff3c",",",NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Trifluoressigsäure (TFA)",12,"0.4 - <1.1",2,"µg/l","#77c830",NA,NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Trifluoressigsäure (TFA)",12,"1.1 - <1.8",3,"µg/l","#4b9322",NA,NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Trifluoressigsäure (TFA)",12,"1.8 - <2.5",4,"µg/l","#246112",NA,NA,NA
+"Per- und polyfluorierte Alkylsubstanzen (PFAS)",3,"Trifluoressigsäure (TFA)",12,"≥2.5",5,"µg/l","#053200",NA,NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R471811",1,"<0.1",1,"µg/l","#64c800","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R471811",1,"0.1 - <0.4",2,"µg/l","#ffe600","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R471811",1,"0.4 - <0.7",3,"µg/l","#ffb300","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R471811",1,"0.7 - <1.0",4,"µg/l","#ff8400","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R471811",1,"≥1.0",5,"µg/l","#ff5100","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R417888 (Sulfonsäure)",2,"<0.1",1,"µg/l","#64c800","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R417888 (Sulfonsäure)",2,"0.1 - <0.4",2,"µg/l","#ffe600","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R417888 (Sulfonsäure)",2,"0.4 - <0.7",3,"µg/l","#ffb300","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R417888 (Sulfonsäure)",2,"0.7 - <1.0",4,"µg/l","#ff8400","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Chlorothalonil R417888 (Sulfonsäure)",2,"≥1.0",5,"µg/l","#ff5100","01.01.2020",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-S",4,"<0.1",1,"µg/l","#64c800","16.12.2016",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-S",4,"0.1 - <0.4",2,"µg/l","#ffe600","16.12.2016",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-S",4,"0.4 - <0.7",3,"µg/l","#ffb300","16.12.2016",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-S",4,"0.7 - <1.0",4,"µg/l","#ff8400","16.12.2016",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-S",4,"≥1.0",5,"µg/l","#ff5100","16.12.2016",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-ESA",5,"<0.1",1,"µg/l","#64c800","30.09.2024",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-ESA",5,"0.1 - <0.4",2,"µg/l","#ffe600","30.09.2024",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-ESA",5,"0.4 - <0.7",3,"µg/l","#ffb300","30.09.2024",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-ESA",5,"0.7 - <1.0",4,"µg/l","#ff8400","30.09.2024",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-ESA",5,"≥1.0",5,"µg/l","#ff5100","30.09.2024",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-OXA",6,"<0.1",1,"µg/l","#64c800","30.09.2024",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-OXA",6,"0.1 - <0.4",2,"µg/l","#ffe600","30.09.2024",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-OXA",6,"0.4 - <0.7",3,"µg/l","#ffb300","30.09.2024",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-OXA",6,"0.7 - <1.0",4,"µg/l","#ff8400","30.09.2024",NA,NA
+"Pestizide und deren Abbauprodukte",4,"Metolachlor-OXA",6,"≥1.0",5,"µg/l","#ff5100","30.09.2024",NA,NA
