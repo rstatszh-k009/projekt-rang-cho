@@ -6,13 +6,17 @@ editor: visual
 
 # Einleitung
 
-Trinkwasserdaten im Verteilnetz (Nitrat und Gesamthärte) im Kanton Zürich, die Daten sind in Bezirke und nach Gemeinde eingeteilt. Je nach Gemeinde kann es mehrere Druckzonen aufweisen.
+Trinkwasserdaten im Kanton Zürich, Export aus dem LIMS einer anonymisierten Wasserversorgung mit zwei Probenahmestellen aus den Jahren 2019-2024
 
 Ziele sind:
 
-Daten pro Gemeinde analysieren. Überschreitungen von 25 mg/l und 40 mg/l Nitrat graphisch darstellen und visuell kenntlich machen (z.B. Plots mit roten Punkten als Überschreitung), Härtegrade in weich (), mittel (), hart (), sehr hart, Gesamtübersicht über beide Parameter. Gedanklich bereits weitere Analyten (z.B. E. coli, Enterokokken) einplanen, welche nur intern verwendet werden. Schnittstelle Datenbanken abklären.
+-   Daten aufbereiten
 
-In ein Shiny App implementieren, um einzelne Gemeinden anzuwählen und darzustellen.
+-   Überschreitungen von 25 mg/l und 40 mg/l Nitrat, E.coli und Enterokokken graphisch darstellen und visuell kenntlich machen (z.B. Plots mit roten Punkten als Überschreitung).
+
+-   Schnittstelle Datenbanken abklären.
+
+-   In ein Shiny App implementieren, um einzelne Gemeinden anzuwählen und darzustellen.
 
 ```{r}
 library(tidyverse)
@@ -22,15 +26,52 @@ library(ggthemes)
 library(dplyr)
 ```
 
-## Daten
+## Daten (statisch)
 
 ```{r}
-read_csv(here::here("daten/raw/Trinkwasserqualitaetsexport.csv"))
-read_csv(here::here("daten/raw/Konzentrationsbereiche.csv"))
+
+```
+
+```{r}
+test_WV <- read_csv(here::here("daten/raw/2019-2024_TEST.csv"))
+```
+
+```{r}
+test_WV |> 
+  glimpse()
+test_WV |> 
+  head()
+test_WV |> 
+  tail()
 ```
 
 ## Analyseziele
 
 # Daten Aufbereitung
 
+```{r}
+
+
+
+numeric_cols <- c("Wassertemperatur", "Leitfähigkeit..20.C..Labor.", "pH..Labor.", "Gesamthärte", "Calcium", "Magnesium", "Kalium", "Natrium", "Chlorid", "Nitrat", "Sulfat")
+```
+
+### Analyten definieren
+
+```{r}
+TWlist <- c("SSK 254 nm", "Kalium", "Natrium", "Calcium", "Magnesium", "Gesamthärte", "E. coli", "Aerobe mesophile Keime", "Resthärte", "Karbonathärte (SV pH 4.3)", "Trübung", "Säureverbrauch", "pH (Labor)", "Wassertemperatur (Feld)", "Enterokokken", "Leitfähigkeit (20°C, Labor)", "Chlorid", "Nitrat", "Sulfat", "Ozon", "Aluminium", "TOC", "Nitrit") 
+```
+
 # Daten Visualisierung
+
+```{r}
+ggplot(data = test_WV,
+       mapping = aes(x = ,
+                     y = )) +
+  geom_point()
+
+```
+
+```{r}
+facets
+```
