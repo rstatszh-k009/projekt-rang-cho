@@ -2,6 +2,8 @@
 title: "index"
 format: html
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Einleitung
@@ -20,7 +22,6 @@ Ziele sind:
 
 ```{r}
 library(tidyverse)
-install.packages("here")
 library(here)
 library(ggthemes)
 library(dplyr)
@@ -33,45 +34,99 @@ library(dplyr)
 ```
 
 ```{r}
-test_WV <- read_csv(here::here("daten/raw/2019-2024_TEST.csv"))
+## Daten einlesen als semicolon getrennte Daten. Die ersten 5 Zeilen überspringen
+daten_in <- read_delim(here::here("daten/raw/2019-2024_TEST.csv"), skip = 5) |> 
+  # clean_names hier nutzen, damit auf "saubere" Variablen in Aufbereitung zugegriffen werden kann
+  janitor::clean_names() 
+
+## Metadaten extrahieren. Die ersten 2 Zeilen überspringen. Keine Spaltennamen geben.
+dictionary_in <- read_delim(here::here("daten/raw/2019-2024_TEST.csv"), skip = 2, col_names = FALSE) |> 
+  # clean_names hier nutzen, damit auf "saubere" Variablen in Aufbereitung zugegriffen werden kann
+  janitor::clean_names() 
+
 ```
 
+# Daten Aufbereitung
+
+## Notizen
+
+- tags sind nicht vereinheitlichet (probiere: test_wv |> count(tags))
+- Unterhalb von detektierbaren Messschwellen wird der Wert "<0.01" zurückgegeben, dadurch wird Spalte zu einer character Spalte. Dieser Werte müssten mit einem numerischen Wert ersetzt werden (e.g. 0) damit Werte grösser 0.01 mg/l korrekt als numerische Werte erkannt werden.
+
 ```{r}
-test_WV |> 
+# Daten säubern
+test_wv <- daten_in |> 
+  # Spalte ist hat keine Werte. Am Ende wird auf eine Legende hingewiesen 
+  select(-koordinaten_lv95) |>  
+  slice(-3) |> # Zeile hat keine Werte
+  mutate(erhebungsdatum= dmy(erhebungsdatum)) |> 
+  # Alle Reihen mit NA für erhebungsdatum sind leer.
+  filter(!is.na(erhebungsdatum)) |> 
+  # Fügt eine ID Spalte hinzu um Proben zu identifizieren
+  mutate(id = seq(1:n())) |> 
+  # Bringt die Spalte id an den Anfang des Datensatzes
+  relocate(id)
+```
+
+
+```{r}
+# Das Daten Wörterbuch aus den Metadaten in der Datei erstellen
+dictionary <- dictionary_in |> 
+  slice(1:4) |> # Nur die ersten 4 Zeilen sind relevant
+  # Spalte x1 wurd aus Daten entfernt (i.e. koordinaten_lv95)
+  # Spalte id wurde zu Daten hinzugefügt
+  # Hier wird Kooridnaten_lv95 zu id umbenannt damit es im Wörterbuch auftaucht
+  mutate(x1 = case_when(
+    x1 == "Koordinaten LV95" ~ "Eindeutige ID für jede Probe.",
+    .default = NA)
+    ) |> 
+  t() |> # Transponieren, macht aus 4 Reihen 4 Spalten. Rückgabe als Matrix/Array.
+  as_tibble() |> # Aus Matrix / Arrax ein tibble machen (Dataframe)
+  # Spaltennamen aus test_wv als Variable hinzufügen 
+  # names(test_wv) gibt Spaltennamen zurück.
+  mutate(variable = names(test_wv)) |> #
+  select(variable, # Mit select Reihenfolge bestimmen und Spalten benennen
+         einheit = V2, 
+         methode = V3, 
+         typ = V1, 
+         beschreibung = V4) |> 
+   # Füllt NA Werte in Spalte typ mit dem Wert darüber (überprüfen!)
+  fill(typ, .direction = "down")
+```
+
+
+```{r}
+test_wv |> 
   glimpse()
-test_WV |> 
+
+test_wv |> 
   head()
-test_WV |> 
+
+test_wv |> 
   tail()
 ```
 
 ## Analyseziele
 
-# Daten Aufbereitung
 
 ```{r}
-
-
-
+# wird eventuell nicht mehr benötigt
 numeric_cols <- c("Wassertemperatur", "Leitfähigkeit..20.C..Labor.", "pH..Labor.", "Gesamthärte", "Calcium", "Magnesium", "Kalium", "Natrium", "Chlorid", "Nitrat", "Sulfat")
 ```
 
 ### Analyten definieren
 
 ```{r}
+# wird eventuell nicht mehr benötigt
 TWlist <- c("SSK 254 nm", "Kalium", "Natrium", "Calcium", "Magnesium", "Gesamthärte", "E. coli", "Aerobe mesophile Keime", "Resthärte", "Karbonathärte (SV pH 4.3)", "Trübung", "Säureverbrauch", "pH (Labor)", "Wassertemperatur (Feld)", "Enterokokken", "Leitfähigkeit (20°C, Labor)", "Chlorid", "Nitrat", "Sulfat", "Ozon", "Aluminium", "TOC", "Nitrit") 
 ```
 
 # Daten Visualisierung
 
 ```{r}
-ggplot(data = test_WV,
-       mapping = aes(x = ,
-                     y = )) +
-  geom_point()
-
-```
-
-```{r}
-facets
+ggplot(data = test_wv,
+       mapping = aes(x = id,
+                     y = wassertemperatur)) +
+  geom_point() +
+  geom_line()
 ```
