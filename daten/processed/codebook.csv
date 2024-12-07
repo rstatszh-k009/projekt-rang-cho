@@ -1,0 +1,150 @@
+﻿variable-name;beschreibung
+Probenahmestelle;
+Probenahmepunkt;
+Tags;
+Erhebungsdatum;
+Protokollnummer;
+Auftragsnummer;
+Wassertemperatur;°C
+Aerobe mesophile Keime;KBE/ml
+Escherichia coli;KBE/100ml
+Enterokokken;KBE/100ml
+SSK 254 nm;1/m
+Leitfähigkeit (20°C, Labor);µS/cm
+Leitfähigkeit (25°C, Labor);µS/cm
+Sauerstoff gelöst;mg/l
+Sauerstoffsättigung;%
+Freie Kohlensäure titriert;mg/l
+pH (Labor);pH
+Gesamthärte;°fH
+Gesamthärte;mmol/l
+Karbonathärte (SV pH 4.3);°fH
+Säureverbrauch;mmol/l
+Resthärte;°fH
+Calcium;mg/l
+Magnesium;mg/l
+Kalium;mg/l
+Natrium;mg/l
+Ammonium;mg/l
+Natrium;mg/l
+Kalium;mg/l
+Chlorid;mg/l
+Fluorid;mg/l
+Nitrat;mg/l
+Sulfat;mg/l
+Chlorothalonil R417888 (Sulfonsäure);µg/l
+Chlorothalonil R471811;µg/l
+Chlorothalonil R182281 (4-hydroxy);µg/l
+Chlorothalonil R418503;µg/l
+Chlorothalonil R611553;µg/l
+Chlorothalonil R611968;µg/l
+Chlorothalonil SYN507900;µg/l
+Chlorothalonil SYN546872;µg/l
+Chlorothalonil M7;µg/l
+Chlorothalonil R419492 (SYN548765);µg/l
+Chlorothalonil R950097;µg/l
+Chlorothalonil SYN548580;µg/l
+Chlorothalonil SYN548581;µg/l
+D 2,4-;µg/l
+Amidotrizoesäure (Diatrizoat);µg/l
+Bentazon;µg/l
+Chlorothalonil R417888 (Sulfonsäure);µg/l
+Dichlorprop;µg/l
+Dimethachlor-ESA;µg/l
+Dimethachlor-OXA (CGA 50266);µg/l
+Dimethenamid-ESA;µg/l
+MCPA;µg/l
+Mecoprop;µg/l
+Mesotrion;µg/l
+Metazachlor-ESA;µg/l
+Metazachlor-OXA;µg/l
+Metolachlor-ESA;µg/l
+Metolachlor-OXA;µg/l
+Propachlor-ESA;µg/l
+Sulcotrion;µg/l
+Dichlorobenzamid 2,6-;µg/l
+Atrazin;µg/l
+Atrazin-desethyl;µg/l
+Atrazin-desisopropyl;µg/l
+1H_Benzotriazol;µg/l
+5-Methylbenzotriazol (5-MBTA);µg/l
+Carbamazepin;µg/l
+Chloridazon;µg/l
+Chloridazon-desphenyl;µg/l
+Chloridazon-methyldesphenyl;µg/l
+Chlorotoluron;µg/l
+Cyanazin;µg/l
+Diazinon;µg/l
+Diclofenac;µg/l
+Diuron;µg/l
+Isoproturon;µg/l
+Linuron;µg/l
+Metamitron;µg/l
+Metamitron-desamino;µg/l
+Metazachlor;µg/l
+Metolachlor;µg/l
+Metribuzin;µg/l
+Propazin;µg/l
+Simazin;µg/l
+Terbuthylazin;µg/l
+Terbuthylazin-desethyl;µg/l
+Terbutryn;µg/l
+Dimethylsulfamid N,N-;µg/l
+TOC;mg C/l
+Nitrit;mg/l
+Ortho-Phosphat;mg P/l
+Nitrit;mg/l
+Text;-
+Acesulfam-K;µg/l
+Sulfamethoxazol;µg/l
+Spurenstoffe in Trinkwasser (Multimethode);-
+Chlorothalonil R471811;µg/l
+Chlorothalonil R419492 (SYN548765);µg/l
+Chlorothalonil R417888 (Sulfonsäure);µg/l
+Acesulfam-K;µg/l
+Atrazin;µg/l
+Atrazin-desisopropyl-desethyl;µg/l
+CGA 046571 (CSAA036479);µg/l
+CGA 369873;µg/l
+Chloridazon-desphenyl;µg/l
+Chloridazon-methyldesphenyl;µg/l
+Nicosulfuron AUSN;µg/l
+Nicosulfuron UCSN;µg/l
+Trifluoressigsäure (TFA);µg/l
+Sucralose;µg/l
+Perfluorbutansäure (PFBA);µg/l
+Perfluorbutansulfonsäure (PFBS);µg/l
+Perfluordecansäure (PFDA);µg/l
+Perfluordecansulfonsäure (PFDS);µg/l
+Perfluordodecansäure (PFDoA);µg/l
+Perfluorheptansäure (PFHpA);µg/l
+Perfluorheptansulfonsäure (PFHpS);µg/l
+Perfluorhexansäure (PFHxA);µg/l
+Perfluorhexansulfonsäure (PFHxS);µg/l
+Perfluornonansäure (PFNA);µg/l
+Perfluornonansulfonsäure (PFNS);µg/l
+Perfluoroctansäure (PFOA);µg/l
+Perfluoroctansulfonsäure (PFOS);µg/l
+Perfluorpentansäure (PFPeA);µg/l
+Perfluorpentansulfonsäure (PFPeS);µg/l
+Perfluorundecansäure (PFUdA);µg/l
+Perfluorundecansulfonsäure (PFUdS);µg/l
+Trifluoressigsäure (TFA);µg/l
+L-Perfluorhexansulfonsäure (L-PFHxS);µg/l
+L-Perfluoroctansulfonsäure (L-PFOS);µg/l
+Perfluordodecansulfonsäure (PFDoS);µg/l
+Perfluorethansulfonsäure (PFES);µg/l
+Perfluorpropansäure (PFPrA);µg/l
+Perfluorpropansulfonsäure (PFPrS);µg/l
+Perfluortridecansäure (PFTrdA);µg/l
+Perfluortridecansulfonsäure (PFTrdS);µg/l
+Trifluormethansulfonsäure (TFMS);µg/l
+Summe PFAS-4;µg/l
+Summe PFAS-20;µg/l
+Antimon;µg/l
+Arsen;µg/l
+Blei;µg/l
+Kupfer;µg/l
+Zink;µg/l
+Aluminium;µg/l
+Information;-

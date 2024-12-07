@@ -1,9 +1,18 @@
 ---
-title: "index"
-format: html
-editor: visual
+title: "Trinkwasserdaten"
+date: 12.10.2024
+author: rang-cho
+format:
+  html:
+    embed-resources: true
+    toc: true
+    toc-location: left
+    toc-title: Inhalt
+execute:
+  warning: false
 editor_options: 
   chunk_output_type: console
+editor: source
 ---
 
 # Einleitung
@@ -14,28 +23,22 @@ Ziele sind:
 
 -   Daten aufbereiten
 
--   Überschreitungen von 25 mg/l und 40 mg/l Nitrat, E.coli und Enterokokken graphisch darstellen und visuell kenntlich machen (z.B. Plots mit roten Punkten als Überschreitung).
+-   Überschreitungen von 25 mg/l und 40 mg/l Nitrat, E.coli und Enterokokken (KBE / 100 ml) graphisch darstellen und visuell kenntlich machen (z.B. Plots mit roten Punkten als Überschreitung).
 
--   Schnittstelle Datenbanken abklären.
-
--   In ein Shiny App implementieren, um einzelne Gemeinden anzuwählen und darzustellen.
 
 ```{r}
 library(tidyverse)
 library(here)
 library(ggthemes)
 library(dplyr)
+library(lubridate)
 ```
 
-## Daten (statisch)
-
-```{r}
-
-```
+# Daten (statisch)
 
 ```{r}
 ## Daten einlesen als semicolon getrennte Daten. Die ersten 5 Zeilen überspringen
-daten_in <- read_delim(here::here("daten/raw/2019-2024_TEST.csv"), skip = 5) |> 
+daten_in <- read_delim(here::here("daten/raw/2019-2024_TEST.csv"), skip = 5) |>
   # clean_names hier nutzen, damit auf "saubere" Variablen in Aufbereitung zugegriffen werden kann
   janitor::clean_names() 
 
@@ -50,8 +53,12 @@ dictionary_in <- read_delim(here::here("daten/raw/2019-2024_TEST.csv"), skip = 2
 
 ## Notizen
 
-- tags sind nicht vereinheitlichet (probiere: test_wv |> count(tags))
-- Unterhalb von detektierbaren Messschwellen wird der Wert "<0.01" zurückgegeben, dadurch wird Spalte zu einer character Spalte. Dieser Werte müssten mit einem numerischen Wert ersetzt werden (e.g. 0) damit Werte grösser 0.01 mg/l korrekt als numerische Werte erkannt werden.
+-   tags sind nicht vereinheitlichet (probiere: test_wv \|\> count(tags))
+-   Unterhalb von detektierbaren Messschwellen wird der Wert "\<0.01" zurückgegeben, dadurch wird Spalte zu einer character Spalte. Dieser Werte müssten mit einem numerischen Wert ersetzt werden (e.g. 0) damit Werte grösser 0.01 mg/l korrekt als numerische Werte erkannt werden.
+
+```{r}
+#tags sind nicht relevant für die Auswertung
+```
 
 ```{r}
 # Daten säubern
@@ -67,7 +74,6 @@ test_wv <- daten_in |>
   # Bringt die Spalte id an den Anfang des Datensatzes
   relocate(id)
 ```
-
 
 ```{r}
 # Das Daten Wörterbuch aus den Metadaten in der Datei erstellen
@@ -94,39 +100,114 @@ dictionary <- dictionary_in |>
   fill(typ, .direction = "down")
 ```
 
+```{#Daten erkunden}
+{r}
+#test_wv |> 
+  #glimpse()
 
-```{r}
-test_wv |> 
-  glimpse()
+#test_wv |> 
+  #head()
 
-test_wv |> 
-  head()
-
-test_wv |> 
-  tail()
+#test_wv |> 
+  #tail()
 ```
 
-## Analyseziele
 
+# Daten Visualisierung und Ergebnisse
+
+@tbl-parameter zeigt eine Übersicht zu den Werten von Nitrat, E.coli und Enterokokken.
 
 ```{r}
-# wird eventuell nicht mehr benötigt
-numeric_cols <- c("Wassertemperatur", "Leitfähigkeit..20.C..Labor.", "pH..Labor.", "Gesamthärte", "Calcium", "Magnesium", "Kalium", "Natrium", "Chlorid", "Nitrat", "Sulfat")
+#| label: tbl-parameter
+#| tbl-cap: "Parameter Nitrat, E.coli und Enterokokken"
+
+test_wv |> 
+  select(nitrat, escherichia_coli, enterokokken) |> 
+  summary(test_wv) |>
+  knitr::kable()
+
+
 ```
 
-### Analyten definieren
+In @fig-e.coli und @fig-enterokokken sind mögliche Höchstwertüberschreitungen von Fäkalkeimen dargestellt. Zusätzlich sieht man in @fig-nitrat, ob der Nitrat Höchstwert von 40 mg/l überschritten wurde.
 
 ```{r}
-# wird eventuell nicht mehr benötigt
-TWlist <- c("SSK 254 nm", "Kalium", "Natrium", "Calcium", "Magnesium", "Gesamthärte", "E. coli", "Aerobe mesophile Keime", "Resthärte", "Karbonathärte (SV pH 4.3)", "Trübung", "Säureverbrauch", "pH (Labor)", "Wassertemperatur (Feld)", "Enterokokken", "Leitfähigkeit (20°C, Labor)", "Chlorid", "Nitrat", "Sulfat", "Ozon", "Aluminium", "TOC", "Nitrit") 
-```
+#| label: fig-e.coli
+#| fig-cap: "E.coli Höchstwertüberschreitungen"
+#| warning: false
 
-# Daten Visualisierung
-
-```{r}
 ggplot(data = test_wv,
-       mapping = aes(x = id,
-                     y = wassertemperatur)) +
+       mapping = aes(x = erhebungsdatum,
+                     y = escherichia_coli)) +
   geom_point() +
-  geom_line()
+  scale_color_manual(values = "blue") +
+  geom_vline(xintercept = 1, color = "red", linetype = "dashed", linewidth = 1) +
+  facet_wrap(~probenahmestelle) +
+  labs(title = "Auswertung Wasserversorgung Test",
+         subtitle = "E.coli",
+         caption = "KL",
+         y = NULL,
+         x = NULL) +
+    theme_minimal() +
+    theme(legend.position = "bottom", panel.grid.major.y = element_blank())
 ```
+
+```{r}
+#| label: fig-enterokokken
+#| fig-cap: "Enterokokken Höchstwertüberschreitungen"
+#| warning: false
+
+ggplot(data = test_wv,
+       mapping = aes(x = erhebungsdatum,
+                     y = enterokokken)) +
+  geom_point() +
+  scale_color_manual(values = "blue") +
+  geom_vline(xintercept = 1, color = "red", linetype = "dashed", linewidth = 1) +
+  facet_wrap(~probenahmestelle) +
+  labs(title = "Auswertung Wasserversorgung Test",
+         subtitle = "Enterokokken",
+         caption = "KL",
+         y = NULL,
+         x = NULL) +
+    theme_minimal() +
+    theme(legend.position = "bottom", panel.grid.major.y = element_blank())
+```
+
+```{r}
+#| label: fig-nitrat
+#| fig-cap: "Nitrat Höchstwertüberschreitungen"
+#| warning: false
+
+ggplot(data = test_wv,
+       mapping = aes(x = erhebungsdatum,
+                     y = nitrat)) +
+  geom_point() +
+  scale_color_manual(values = "green") +
+  geom_vline(xintercept = 40, color = "red", linetype = "dashed", linewidth = 1) +
+  facet_wrap(~probenahmestelle) +
+  labs(title = "Auswertung Wasserversorgung Test",
+         subtitle = "Nitrat",
+         caption = "KL",
+         y = NULL,
+         x = NULL) +
+    theme_minimal() +
+    theme(legend.position = "bottom", panel.grid.major.y = element_blank())
+```
+
+
+Die Diagramme und Tabelle zeigen, dass es zu keiner Höchstwertüberschreitung an Fäkalkeimen zwischen 2019 und 2024 gekommen ist. Der Höchstwert von 40 mgl/l Nitrat wurde an Teststr. im Jahr 2021 überschritten.
+
+# Schlussfolgerungen
+
+-   Es ist möglich mit diesem Vorgehen eine Übersicht über die relevanten Höchstwertüberschreitungen einer Wasserversorgung über einen bestimmten Zeitraum zu gewinnen.
+
+-   Eine gute Datenaufbereitung ist das schwierigste.
+
+
+# Ausblick
+
+-   Schnittstelle Datenbanken abklären, um ein Abruf der Daten aus der Datenbank zu ermöglichen.
+
+-   Datenaufbereitung
+
+-   In ein Shiny App implementieren, um einzelne Gemeinden anzuwählen und darzustellen.
